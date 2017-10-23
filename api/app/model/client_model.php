@@ -71,7 +71,7 @@ class  ClientModel
 	// }
 
 	public function listClients(){
-		$res = $this->db_pdo->query("SELECT * FROM show_me_clients()")
+		$res = $this->db_pdo->query("SELECT * FROM client")
                          ->fetchAll();
         $res = array("message"=>$res,"response"=>true);
         return $res;

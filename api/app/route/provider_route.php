@@ -9,12 +9,12 @@ use App\Lib\Response;
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 });
 
-$app->group('/client',function(){
+$app->group('/provider',function(){
 
 	$this->get('/',function($req, $res, $args){
 		return $res->withHeader('Content-type', 'aplication/json')
 				   ->write(
-				   		json_encode($this->model->Client->listClients())
+				   		json_encode($this->model->Provider->listProviders())
 				   		
 				   	);
     });
@@ -22,7 +22,7 @@ $app->group('/client',function(){
     $this->get('/{id}',function($req, $res, $args){
 		return $res->withHeader('Content-type', 'aplication/json')
 				   ->write(
-				   		json_encode($this->model->Client->getClient($args['id']))
+				   		json_encode($this->model->Provider->getProvider($args['id']))
 				   		
 				   	);
 	});
@@ -31,27 +31,9 @@ $app->group('/client',function(){
 
 		return $res->withHeader('Content-type', 'aplication/json')
 			       -> write(
-						json_encode($this->model->Client->insert($req->getParsedBody()))
+						json_encode($this->model->Provider->insert($req->getParsedBody()))
 
 				   	);
-	});
-
-	$this->put('/{id}',function($req, $res, $args){
-
-		return $res->withHeader('Content-type', 'aplication/json')
-				   ->write(
-				   		json_encode($this->model->Client->update($req->getParsedBody(), $args['id'] ))
-				   		
-				   	);
-	});
-
-	$this->delete('/{id}',function($req, $res, $args){
-		return $res->withHeader('Content-type', 'aplication/json')
-				   ->write(
-				   		json_encode($this->model->Client->delete($args['id']))
-				   		
-				   	);
-
 	});
 });	
 // })->add(new AuthMiddleware($app)); //agregar middleware

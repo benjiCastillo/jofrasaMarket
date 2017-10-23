@@ -21,7 +21,7 @@ return [
         'connectionString'  =>[
             'dns'   => 'pgsql:host=localhost;dbname=jofrasa',
             'user'  =>  'postgres',
-            'pass'  =>  '',
+            'pass'  =>  '1234',
             'name_db' => 'jofrasa',
             'host' => 'localhost'
         ]
