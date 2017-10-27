@@ -11,7 +11,7 @@ use App\Lib\Response;
 
 $app->group('/provider',function(){
 
-	$this->get('/',function($req, $res, $args){
+	$this->get('/listProviders/',function($req, $res, $args){
 		return $res->withHeader('Content-type', 'aplication/json')
 				   ->write(
 				   		json_encode($this->model->Provider->listProviders())

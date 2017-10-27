@@ -27,14 +27,24 @@ $app->group('/client',function(){
 				   	);
 	});
 
-	$this->post('/',function($req, $res, $args){
+	
+	$this->post('/insertClient/',function($req, $res, $args){
 
 		return $res->withHeader('Content-type', 'aplication/json')
 			       -> write(
-						json_encode($this->model->Client->insert($req->getParsedBody()))
+						json_encode($this->model->Client->insertClient($req->getParsedBody()))
 
 				   	);
 	});
+
+	$this->post('/insertShopping/',function($req, $res, $args){
+		
+				return $res->withHeader('Content-type', 'aplication/json')
+						   -> write(
+								json_encode($this->model->Client->insertShopping($req->getParsedBody()))
+		
+							   );
+			});
 
 	$this->put('/{id}',function($req, $res, $args){
 
